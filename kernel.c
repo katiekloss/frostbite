@@ -27,5 +27,21 @@ void kinit(multiboot_info_t *multiboot_info, unsigned int magic)
 
     init_console();
 
-    printk("Hello, world!");
+    // Put the string "needle" somewhere in memory
+    void *needle = 4096;
+    strncpy(needle, "needle", 6);
+
+    // The start of upper memory
+    void *haystack = 1024;
+
+    // We know where it is, but still.
+    while(haystack < 6000)
+    {
+        if(!strncmp(haystack, "needle", 6))
+        {
+            printk("Found it!");
+            break;
+        }
+        haystack++;
+    }
 }
