@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Katie Kloss <kloss.katherine@gmail.com>
+ * Copyright (c) 2013 Katie Kloss <ajk108@case.edu>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
