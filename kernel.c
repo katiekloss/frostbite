@@ -16,7 +16,6 @@
 
 #include <console.h>
 #include <multiboot.h>
-#include <mm.h>
 #include <string.h>
 
 void kinit(multiboot_info_t *multiboot_info, unsigned int magic)
@@ -28,14 +27,5 @@ void kinit(multiboot_info_t *multiboot_info, unsigned int magic)
 
     init_console();
 
-    init_mm(multiboot_info->mem_upper);
-    char *string = (char *) kmalloc(sizeof("Hello, world!"));
-    if(string == 0)
-    {
-        printk("Kmalloc failed!");
-        return;
-    }
-    strncpy(string, "Hello, world!", strlen("Hello, world!"));
-    printk(string);
-    kfree(string);
+    printk("Hello, world!");
 }

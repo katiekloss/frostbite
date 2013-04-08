@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -Wall -Wextra -nostdlib -fno-builtin
 CFLAGS += -Iinclude/
-OBJECTS = loader.o kernel.o console.o libc.o mm.o
+OBJECTS = loader.o kernel.o console.o libc.o
 
 iso: kernel
 	mkdir -p iso/boot/grub
