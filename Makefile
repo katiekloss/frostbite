@@ -16,5 +16,13 @@ kernel: $(OBJECTS)
 loader.o: loader.s
 	nasm -f elf -o loader.o loader.s
 
+usb: kernel
+	mkdir -p /media/usb/boot/grub
+	cp menu.lst.usb /media/usb/boot/grub/menu.lst
+	cp /usr/lib/grub/i386-pc/stage1 /media/usb/boot/grub/
+	cp /usr/lib/grub/i386-pc/stage2 /media/usb/boot/grub/
+	cp /usr/lib/grub/i386-pc/e2fs_stage1_5 /media/usb/boot/grub/
+	grub-install --root-directory=/media/usb /dev/sdb
+	cp kernel.bin /media/usb/boot/
 clean:
 	rm -Rf *.o kernel.bin iso/ frostbite.iso

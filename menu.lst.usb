@@ -1,0 +1,3 @@
+timeout 0
+title Frostbite
+kernel /boot/kernel.bin
